@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.joy.aop.annotation.CheckLogin;
+import com.joy.aop.annotation.CheckNet;
 import com.joy.aop.annotation.CheckPermission;
 import com.joy.aop.annotation.LogTrace;
 import com.joybar.library.common.log.LogLevel;
@@ -27,27 +28,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_getname).setOnClickListener(this);
 
     }
-    @LogTrace(spendTimeEnable = false)
+    @LogTrace(traceSpendTime = false)
     @CheckLogin
     private void loginCheck() {
         Log.i(TAG, "已经登陆，执行登陆后的逻辑");
     }
 
+    @CheckNet(isShowTips = true)
     private void netCheck() {
-
+        Log.i(TAG, "网络已经连接，执行逻辑");
     }
 
     @CheckPermission(permissions = {Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.CAMERA} ,requestCode = 1)
     private void permissionCheck() {
 
-        Log.i(TAG, "已经检查权限，执行登陆后的逻辑");
+        Log.i(TAG, "已经检查权限，执行授予权限后的逻辑");
 
 //        //需要请求的权限
 //        String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.CAMERA};
 //        PermissionManager.getInstance().requestPermissions(this,new String[]{Manifest.permission.CALL_PHONE}, 1);
 //        //  PermissionManager.getInstance().requestPermissions(this,permissions, 1);
     }
-    @LogTrace(level = LogLevel.TYPE_INFO)
+    @LogTrace(level = LogLevel.TYPE_INFO,traceSpendTime = true)
     public String getName(String first, String last) {
        // Log.i(TAG, "已经PrintLog，执行PrintLog后的逻辑");
         SystemClock.sleep(15); // Don't ever really do this!
@@ -57,9 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // @CheckLogin
     @Override
     public void onClick(View v) {
-        String result = "";
         switch (v.getId()) {
-
             case R.id.btn_login:
                 loginCheck();
                 break;

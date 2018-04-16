@@ -85,5 +85,5 @@ dependencies {
    // aspectjrt
     compile 'org.aspectj:aspectjrt:1.8.9'
     // utils lib
-    compile 'com.joybar.libutils:library:1.4.3'
+    compile 'com.joybar.libutils:library:1.4.4'
 }

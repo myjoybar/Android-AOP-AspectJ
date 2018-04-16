@@ -44,10 +44,10 @@ public class PrintLogAspect {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         LogTrace printLog = signature.getMethod().getAnnotation(LogTrace.class);
         int logLevel = LogLevel.TYPE_VERBOSE;
-        boolean spendTimeEnable = false;
+        boolean traceSpendTime = false;
         if (printLog != null) {
             logLevel = printLog.level();
-            spendTimeEnable = printLog.spendTimeEnable();
+            traceSpendTime = printLog.traceSpendTime();
             Pair<String, String> enterMethodPair = enterMethodInfo(joinPoint);
             String tag = enterMethodPair.first;
             String msg = enterMethodPair.second;
@@ -66,7 +66,7 @@ public class PrintLogAspect {
         }
         Object result = null;
         Pair<String, String> exitMethodPair = null;
-        if (spendTimeEnable) {
+        if (traceSpendTime) {
             long startNanos = System.nanoTime();
             result = joinPoint.proceed();
             long stopNanos = System.nanoTime();
