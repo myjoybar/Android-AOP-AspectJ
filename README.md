@@ -32,7 +32,7 @@ public String getName(String first, String last) {
 }
 
 ```
-![image](https://github.com/myjoybar/Android-AOP-AspectJ/blob/master/screenshots/screenshot.jpg)
+![image](https://github.com/myjoybar/Android-AOP-AspectJ/blob/master/screenshots/screenshot.png)
 
 @CheckPermission：权限检查
 
