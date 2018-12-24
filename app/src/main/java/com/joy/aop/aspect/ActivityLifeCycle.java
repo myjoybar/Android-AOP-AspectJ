@@ -1,5 +1,6 @@
 package com.joy.aop.aspect;
 
+import com.joy.aop.MainActivity;
 import com.joy.aop.Utils.JoinPointUtils;
 import com.joybar.library.common.log.L;
 
@@ -14,7 +15,7 @@ import org.aspectj.lang.annotation.Aspect;
 @Aspect
 public class ActivityLifeCycle {
 
-    private static final String TAG = "ActivityLifeCycle";
+    private static final String TAG = MainActivity.TAG;
 /**
     @Before("execution(* android.app.Activity.on**(..))")
     public void onActivityMethodBefore(JoinPoint joinPoint) throws Throwable {

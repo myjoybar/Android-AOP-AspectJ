@@ -2,6 +2,7 @@ package com.joy.aop.application;
 
 import android.app.Application;
 
+import com.joy.aop.confg.TrackConfig;
 import com.joybar.library.common.log.L;
 import com.joybar.library.common.log.LogLevel;
 
@@ -15,6 +16,7 @@ public class AopApplication extends Application {
     public void onCreate() {
         super.onCreate();
         initLog();
+        initTrackConfig();
 
     }
 
@@ -25,4 +27,7 @@ public class AopApplication extends Application {
         L.setLineIndicatorEnable(false);
     }
 
+    private void initTrackConfig(){
+        TrackConfig.intConfig();
+    }
 }
