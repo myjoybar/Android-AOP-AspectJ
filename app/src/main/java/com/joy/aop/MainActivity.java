@@ -3,12 +3,11 @@ package com.joy.aop;
 import android.Manifest;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 
-import com.joy.aop.Utils.MarkViewUtils;
 import com.joy.aop.annotation.CheckLogin;
 import com.joy.aop.annotation.CheckNet;
 import com.joy.aop.annotation.CheckPermission;
@@ -25,8 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		MarkViewUtils.traversalAndMarkView(getClass(), (ViewGroup) ((ViewGroup) getWindow().getDecorView().findViewById(android.R.id.content))
-				.getChildAt(0));
+//		MarkViewUtils.traversalAndMarkView(getClass(), (ViewGroup) ((ViewGroup) getWindow().getDecorView().findViewById(android.R.id.content))
+//				.getChildAt(0));
 		findViewById(R.id.btn_login).setOnClickListener(this);
 		findViewById(R.id.btn_net).setOnClickListener(this);
 		findViewById(R.id.btn_permission).setOnClickListener(this);

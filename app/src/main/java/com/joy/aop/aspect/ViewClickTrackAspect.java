@@ -28,9 +28,5 @@ public class ViewClickTrackAspect {
             GATestUtils.send(view.getTag().toString(),"is clicked");
         }
         joinPoint.proceed();
-
     }
-
-
-
 }

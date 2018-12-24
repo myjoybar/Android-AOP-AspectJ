@@ -63,6 +63,8 @@ public class MethodTrackAspect {
 				if (!TextUtils.isEmpty(exitMsg)) {
 					GATestUtils.send(exitTag, exitMsg);
 				}
+			}else{
+				result = joinPoint.proceed();
 			}
 
 		}
