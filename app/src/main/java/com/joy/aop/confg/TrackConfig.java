@@ -38,7 +38,7 @@ public class TrackConfig {
 
 
 	private static List<TrackConfigData> getTrackConfigData() {
-		String jsonStr = "[{\"className\":\"com.joy.aop.MainActivity\",\"resourceEntryNames\":[\"btn_getname\",\"btn_permission\"]," +
+		String jsonStr = "[{\"className\":\"com.joy.aop.MainActivity\",\"resourceEntryNames\":[\"btn_getname\",\"btn_permission\",\"btn_click\"]," +
 				"\"methodNames\":[\"businessTrack1\"]}]";
 		List<TrackConfigData> trackConfigDataList = getObjectList(jsonStr, TrackConfigData.class);
 		return trackConfigDataList;

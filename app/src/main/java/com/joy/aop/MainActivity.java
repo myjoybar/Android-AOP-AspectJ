@@ -3,11 +3,11 @@ package com.joy.aop;
 import android.Manifest;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.joy.aop.Utils.DialogTestUtils;
 import com.joy.aop.annotation.CheckLogin;
 import com.joy.aop.annotation.CheckNet;
 import com.joy.aop.annotation.CheckPermission;
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		findViewById(R.id.btn_permission).setOnClickListener(this);
 		findViewById(R.id.btn_getname).setOnClickListener(this);
 		findViewById(R.id.btn_send_ga).setOnClickListener(this);
-
+		findViewById(R.id.btn_dialog).setOnClickListener(this);
 
 	}
 
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		return first + " " + last;
 	}
 
-	@MethodTrack()
+	@MethodTrack(properties = "name = joy")
 	public String businessTrack1(String arg1, String arg2) {
 		Log.i(TAG, "businessTrack1");
 		return arg1 + arg2;
@@ -97,9 +97,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				businessTrack1("I am ", "Joy");
 				businessTrack2();
 				break;
+			case R.id.btn_dialog:
+				DialogTestUtils.showDialog(MainActivity.this);
+				break;
+
 			default:
 				break;
 		}
 
 	}
+
+
+
 }

@@ -52,18 +52,25 @@ public class MethodTrackAspect {
 			//Log.e(MainActivity.TAG, "methodTagName = " + methodTagName + ",isTrackMethod=" + isTrackMethod);
 			if (isTrackMethod) {
 				isTrackParameter = methodTrack.isTrackParameter();
+				String properties = methodTrack.properties();
 				Pair<String, String> enterMethodPair = enterMethodInfo(joinPoint);
 				String tag = enterMethodPair.first;
 				String msg = enterMethodPair.second;
+				if (!TextUtils.isEmpty(properties)) {
+					msg = msg + properties;
+				}
 				GATestUtils.send(tag, msg);
 				result = joinPoint.proceed();
 				Pair<String, String> exitMethodPair = exitMethodInfo(joinPoint, result);
 				String exitTag = exitMethodPair.first;
 				String exitMsg = exitMethodPair.second;
+				if (!TextUtils.isEmpty(properties)) {
+					exitMsg = exitMsg + properties;
+				}
 				if (!TextUtils.isEmpty(exitMsg)) {
 					GATestUtils.send(exitTag, exitMsg);
 				}
-			}else{
+			} else {
 				result = joinPoint.proceed();
 			}
 

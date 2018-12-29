@@ -1,7 +1,5 @@
 package com.joy.aop.Utils;
 
-import android.content.Context;
-import android.content.ContextWrapper;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -38,18 +36,20 @@ public class MarkViewUtils {
 //		}
 //		return false;
 
+//
+//		Context context = view.getContext();
+//		String className = "";
+//		if (context instanceof ContextWrapper ) {
+//			className = ((ContextWrapper) context).getBaseContext().getClass().getName();
+//		} else {
+//			className = context.getClass().getName();
+//		}
 
-		Context context = view.getContext();
-		String className = "";
-		if (context instanceof ContextWrapper) {
-			className = ((ContextWrapper) context).getBaseContext().getClass().getName();
-		} else {
-			className = context.getClass().getName();
-		}
-
-		//String className = view.getContext().getClass().getName();
+		String className = view.getContext().getClass().getName();
+		//Log.i(MainActivity.TAG, "className="+className);
 		String idName = getIdName(view);
 		String tagName = className + UNDER_LINE + idName;
+		//Log.i(MainActivity.TAG, "tagName="+tagName);
 		if (TrackConfig.getViewTagHashMap().containsKey(tagName)) {
 			view.setTag(tagName);
 			return true;

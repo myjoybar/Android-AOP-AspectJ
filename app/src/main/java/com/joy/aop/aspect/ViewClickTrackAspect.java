@@ -1,5 +1,6 @@
 package com.joy.aop.aspect;
 
+import android.util.Log;
 import android.view.View;
 
 import com.joy.aop.MainActivity;
@@ -17,16 +18,18 @@ import org.aspectj.lang.annotation.Aspect;
 @Aspect
 public class ViewClickTrackAspect {
 
-    private static final String TAG = MainActivity.TAG;
+	private static final String TAG = MainActivity.TAG;
 
-    @Around("execution(* android.view.View.OnClickListener.onClick(android.view.View))")
-    public void onActivityMethodAround(ProceedingJoinPoint joinPoint) throws Throwable {
+	@Around("execution(* android.view.View.OnClickListener.onClick(android.view.View))")
+	public void onActivityMethodAround(ProceedingJoinPoint joinPoint) throws Throwable {
 
-        Object[] parameterValues = joinPoint.getArgs();
-        View view = (View) parameterValues[0];
-        if(MarkViewUtils.isTrackView(view)){
-            GATestUtils.send(view.getTag().toString(),"is clicked");
-        }
-        joinPoint.proceed();
-    }
+		Object[] parameterValues = joinPoint.getArgs();
+		View view = (View) parameterValues[0];
+		boolean isTrackView = MarkViewUtils.isTrackView(view);
+		Log.i(MainActivity.TAG, "this view can be track = "+isTrackView);
+		if (isTrackView) {
+			GATestUtils.send(view.getTag().toString(), "is clicked");
+		}
+		joinPoint.proceed();
+	}
 }

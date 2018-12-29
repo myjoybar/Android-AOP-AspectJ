@@ -12,5 +12,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MethodTrack {
     boolean isTrackParameter() default true;
+    String properties() default "";
 
 }
