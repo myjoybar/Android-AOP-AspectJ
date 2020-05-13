@@ -1,5 +1,7 @@
 package com.joy.aop.annotation;
 
+import android.support.annotation.Keep;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -10,5 +12,6 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
+@Keep
 public @interface Analytics {
 }

@@ -1,4 +1,4 @@
-package com.joy.aop.Utils;
+package com.joy.aop.utils;
 
 import android.os.Looper;
 
@@ -37,7 +37,7 @@ public class JoinPointUtils {
                 builder.append(", ");
             }
             builder.append(parameterNames[i]).append('=');
-            builder.append(Strings.toString(parameterValues[i]));
+            builder.append(StringCombine.toString(parameterValues[i]));
         }
         builder.append(')');
 

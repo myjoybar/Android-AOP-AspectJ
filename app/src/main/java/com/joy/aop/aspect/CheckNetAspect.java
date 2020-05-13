@@ -3,7 +3,7 @@ package com.joy.aop.aspect;
 import android.content.Context;
 
 import com.joy.aop.MainActivity;
-import com.joy.aop.Utils.ContextUtils;
+import com.joy.aop.utils.ContextUtils;
 import com.joy.aop.annotation.CheckNet;
 import com.joybar.library.common.log.L;
 import com.joybar.library.common.net.NetworkUtils;

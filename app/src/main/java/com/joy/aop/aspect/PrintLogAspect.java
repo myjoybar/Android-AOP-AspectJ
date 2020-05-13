@@ -6,7 +6,7 @@ import android.os.Trace;
 import android.util.Pair;
 
 import com.joy.aop.MainActivity;
-import com.joy.aop.Utils.Strings;
+import com.joy.aop.utils.StringCombine;
 import com.joy.aop.annotation.LogTrace;
 import com.joybar.library.common.log.L;
 import com.joybar.library.common.log.LogLevel;
@@ -109,7 +109,7 @@ public class PrintLogAspect {
                 builder.append(", ");
             }
             builder.append(parameterNames[i]).append('=');
-            builder.append(Strings.toString(parameterValues[i]));
+            builder.append(StringCombine.toString(parameterValues[i]));
         }
         builder.append(')');
 
@@ -144,7 +144,7 @@ public class PrintLogAspect {
         }
         if (hasReturnType) {
             builder.append(" = ");
-            builder.append(Strings.toString(result));
+            builder.append(StringCombine.toString(result));
         }
 
         // Log.d(asTag(cls), builder.toString());

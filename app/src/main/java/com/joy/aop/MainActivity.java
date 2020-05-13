@@ -3,11 +3,10 @@ package com.joy.aop;
 import android.Manifest;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
-import com.joy.aop.Utils.DialogTestUtils;
+import com.joy.aop.utils.DialogTestUtils;
 import com.joy.aop.annotation.CheckLogin;
 import com.joy.aop.annotation.CheckNet;
 import com.joy.aop.annotation.CheckPermission;
@@ -15,7 +14,7 @@ import com.joy.aop.annotation.LogTrace;
 import com.joy.aop.annotation.MethodTrack;
 import com.joybar.library.common.log.LogLevel;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
 	public static final String TAG = "MainActivity";

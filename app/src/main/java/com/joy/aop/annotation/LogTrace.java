@@ -1,5 +1,7 @@
 package com.joy.aop.annotation;
 
+import android.support.annotation.Keep;
+
 import com.joybar.library.common.log.LogLevel;
 
 import java.lang.annotation.ElementType;
@@ -12,6 +14,7 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
+@Keep
 public @interface LogTrace {
     @LogLevel.LogLevelType int level() default LogLevel.TYPE_VERBOSE;
     boolean traceSpendTime() default true;

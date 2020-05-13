@@ -1,4 +1,4 @@
-package com.joy.aop.Utils;
+package com.joy.aop.utils;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -9,7 +9,7 @@ import java.util.Set;
  * Created by joybar on 14/04/2018.
  */
 
-final public class Strings {
+final public class StringCombine {
    public static String toString(Object obj) {
         if (obj == null) {
             return "null";
@@ -157,7 +157,7 @@ final public class Strings {
         seen.remove(array);
     }
 
-    private Strings() {
+    private StringCombine() {
         throw new AssertionError("No instances.");
     }
 }
